@@ -16,5 +16,5 @@ public @interface ISO8601 {
 
     Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payloads() default {};
+    Class<? extends Payload>[] payload() default {};
 }
