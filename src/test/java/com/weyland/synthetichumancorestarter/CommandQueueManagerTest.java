@@ -6,10 +6,13 @@ import com.weyland.synthetichumancorestarter.command.CommandRequest;
 import com.weyland.synthetichumancorestarter.exception.CommandQueueFullException;
 import com.weyland.synthetichumancorestarter.metrics.CommandMetrics;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 public final class CommandQueueManagerTest {
     @Test
     public void shouldUpdateMetricsAndExecute() {
@@ -27,6 +30,10 @@ public final class CommandQueueManagerTest {
         verify(metrics, times(1)).incrementAuthor("Roman");
         verify(metrics, times(1)).setQueueSize(1);
     }
+
+    // idk why but this test works perfect when is running by myself
+    // but while maven is building - he's falling
+    // daaaamn!!!
 
     @Test
     public void shouldThrowIfQueueIsFull() {
