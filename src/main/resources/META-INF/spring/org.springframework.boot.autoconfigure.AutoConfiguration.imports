@@ -1,1 +1,2 @@
 com.weyland.synthetichumancorestarter.config.CommandAutoConfiguration
+com.weyland.synthetichumancorestarter.config.WeylandAutoConfiguration
